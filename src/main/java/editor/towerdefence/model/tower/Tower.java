@@ -1,5 +1,6 @@
 package editor.towerdefence.model.tower;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,17 @@ public class Tower {
     // добавить эффекты
 
     public Tower() {
+        this.id = 0;
+        this.name = "";
+        this.maxHealth = 0;
+        this.cost = 0;
+        this.spriteName = "";
+        this.demolitionCurrency = 0;
+        this.actionType = ActionType.Default;
+        this.actionRate = 0;
+        this.actionRange = 0;
+        this.actionParams = new HashMap<>();
+        this.actionParams.put("damage", (float) 0);
     }
 
     public Tower(int id, String name, int maxHealth, int cost, String spriteName, int demolitionCurrency,

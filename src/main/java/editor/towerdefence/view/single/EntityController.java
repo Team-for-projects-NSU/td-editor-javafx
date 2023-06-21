@@ -11,24 +11,28 @@ public class EntityController {
     private AnchorPane enemy;
     @FXML
     private AnchorPane level;
+
     @FXML
     private void initialize() {
         enemy.setVisible(false);
         level.setVisible(false);
         tower.setVisible(true);
     }
+
     @FXML
     private void handleTowerButtonClick(ActionEvent event) {
         level.setVisible(false);
         enemy.setVisible(false);
         tower.setVisible(true);
     }
+
     @FXML
     private void handleEnemyButtonClick(ActionEvent event) {
         level.setVisible(false);
         tower.setVisible(false);
         enemy.setVisible(true);
     }
+
     @FXML
     private void handleLevelButtonClick(ActionEvent event) {
         enemy.setVisible(false);

@@ -1,5 +1,7 @@
 package editor.towerdefence.model.enemy;
 
+import editor.towerdefence.model.tower.Tower;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,8 +23,19 @@ public class Enemy {
     private int actionRange;
     private Map<String, Float> actionParameters;
 
-    public Enemy(){
+    public Enemy() {
+        this.id = 0;
+        this.name = "";
+        this.maxHealth = 0;
+        this.reward = 0;
+        this.spriteFileName = "";
+        this.actionType = Enemy.ActionType.Default;
+        this.actionRate = 0;
+        this.actionRange = 0;
+        this.actionParameters = new HashMap<>();
+        this.actionParameters.put("damage", (float) 0);
     }
+
     public Enemy(int id, String name, int maxHealth, int reward, String spriteFileName, int speed,
                  ActionType actionType, float actionRate, int actionRange) {
         this.id = id;

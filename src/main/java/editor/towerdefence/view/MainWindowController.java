@@ -6,21 +6,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MainWindowController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+    @FXML
+    private HBox mainButtons;
+    @FXML
+    private AnchorPane single;
+    @FXML
+    private void initialize(){
+        single.setVisible(false);
+        mainButtons.setVisible(true);
+    }
     @FXML
     private void switchToSingle(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/editor/towerdefence/fxml/single-mode-view.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        mainButtons.setVisible(false);
+        single.setVisible(true);
     }
 }

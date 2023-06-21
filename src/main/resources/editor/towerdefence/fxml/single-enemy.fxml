@@ -28,7 +28,7 @@
                   </VBox>
                </content>
             </ScrollPane>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="101.0" layoutY="14.0" prefHeight="582.0" prefWidth="697.0">
+            <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="101.0" layoutY="14.0" prefHeight="582.0" prefWidth="697.0">
                <content>
                   <VBox fx:id="enemyEditorPanel" prefHeight="580.0" prefWidth="697.0" spacing="16.0">
                      <children>
@@ -43,12 +43,6 @@
                            <children>
                               <Label text="Health:" />
                               <TextField fx:id="enemyHealth" prefHeight="26.0" prefWidth="200.0" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
-                           <children>
-                              <Label text="Cost:" />
-                              <TextField fx:id="enemyCost" prefHeight="26.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
@@ -94,6 +88,7 @@
                               <TextField fx:id="enemySpeed" prefHeight="26.0" prefWidth="200.0" />
                            </children>
                         </HBox>
+                        <Button mnemonicParsing="false" onAction="#handleEnemyApplyButtonClick" text="Apply" />
                      </children>
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />

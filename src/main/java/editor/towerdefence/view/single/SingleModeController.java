@@ -18,6 +18,7 @@ public class SingleModeController {
 //        technoTree.setVisible(false);
         entity.setVisible(true);
     }
+
     @FXML
     private void handleEntityButtonClick(ActionEvent event) {
         map.setVisible(false);
