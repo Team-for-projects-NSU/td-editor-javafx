@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.towerdefence.view.single.LevelController">
+   <children>
+      <Pane layoutX="200.0" layoutY="100.0" prefHeight="606.0" prefWidth="810.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <children>
+            <ScrollPane fitToHeight="true" hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="582.0" prefWidth="80.0" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="levelIdsPanel" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="578.0" prefWidth="62.0" spacing="16.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleLevelIdButtonClick" prefWidth="43.0" text="0" />
+                        <Button mnemonicParsing="false" onAction="#handleLevelPlusButtonClick" style="-fx-background-color: #9c81b3;" text="+" />
+                     </children>
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="101.0" layoutY="14.0" prefHeight="582.0" prefWidth="697.0">
+               <content>
+                  <VBox fx:id="levelEditorPanel" prefHeight="580.0" prefWidth="697.0" spacing="16.0">
+                     <children>
+                        <Label fx:id="levelId" text="ID: 0" />
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Time between waves:" />
+                              <TextField fx:id="levelTimeWaves" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Initial amount of money:" />
+                              <TextField fx:id="levelInitMoney" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Reward:" />
+                              <TextField fx:id="levelReward" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Map ID:" />
+                              <TextField fx:id="levelMap" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Enemy speed multiplier:" />
+                              <TextField fx:id="levelEnemySpeed" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Enemy damage multiplier:" />
+                              <TextField fx:id="levelEnemyDamage" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Enemy health multiplier:" />
+                              <TextField fx:id="levelEnemyHealth" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleLevelAddWaveButtonClick" text="Add wave" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </VBox>
+               </content>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </ScrollPane>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+   </children>
+</AnchorPane>
