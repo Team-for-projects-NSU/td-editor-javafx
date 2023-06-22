@@ -1,6 +1,7 @@
 package editor.towerdefence.view.single;
 
 import editor.towerdefence.controller.EnemyUpdater;
+import editor.towerdefence.controller.MainUpdater;
 import editor.towerdefence.model.enemy.Enemy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 public class EnemyController {
     private int enemiesSize = 1;
     private int currentId = 0;
-    private EnemyUpdater enemyUpdater;
     @FXML
     private VBox enemyIdsPanel;
     @FXML
@@ -44,7 +44,6 @@ public class EnemyController {
 
     @FXML
     private void initialize() {
-        enemyUpdater = new EnemyUpdater();
         enemyActionParam.getItems().addAll("damage");
         enemyActionType.getItems().addAll("Default", "Do nothing", "BasicAttack");
         changeText();
@@ -69,14 +68,14 @@ public class EnemyController {
 
     @FXML
     private void handleEnemyApplyButtonClick(ActionEvent event) {
-        enemyUpdater.addChanges(currentId, enemyName.getText(), enemyHealth.getText(), enemyReward.getText(),
+        MainUpdater.getInstance().getEnemyUpdater().addChanges(currentId, enemyName.getText(), enemyHealth.getText(), enemyReward.getText(),
                 enemyTexture.getText(), enemySpeed.getText(), enemyActionType.getValue(),
                 enemyActionRate.getText(), enemyActionRange.getText(), enemyActionParam.getValue(),
                 enemyActionParamValue.getText());
     }
 
     private void changeText() {
-        Enemy enemy = enemyUpdater.getEnemyById(currentId);
+        Enemy enemy = MainUpdater.getInstance().getEnemyUpdater().getEnemyById(currentId);
         enemyName.setText(enemy.getName());
         enemyHealth.setText(String.valueOf(enemy.getMaxHealth()));
         enemyReward.setText(String.valueOf(enemy.getReward()));
