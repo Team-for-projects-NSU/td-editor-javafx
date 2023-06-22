@@ -51,13 +51,18 @@
                               <TextField fx:id="enemyTexture" prefHeight="26.0" prefWidth="200.0" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                        <VBox fx:id="actionParamContainer" prefHeight="30.0" prefWidth="681.0" spacing="8.0">
                            <children>
-                              <Label text="Action parameter:" />
-                              <ComboBox fx:id="enemyActionParam" prefWidth="150.0" />
-                              <TextField fx:id="enemyActionParamValue" promptText="value" />
+                              <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                                 <children>
+                                    <Label text="Action parameter:" />
+                                    <ComboBox fx:id="enemyActionParam" prefWidth="150.0" />
+                                    <TextField fx:id="enemyActionParamValue" promptText="value" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#handleAddActionParamButtonClick" style="-fx-padding: 2px 4px;" text="add new action parameter" />
                         <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
                            <children>
                               <Label text="Action type:" />

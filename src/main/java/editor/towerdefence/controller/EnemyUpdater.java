@@ -2,8 +2,10 @@ package editor.towerdefence.controller;
 
 import editor.towerdefence.model.enemy.Enemy;
 import editor.towerdefence.model.enemy.EnemyList;
+import javafx.util.Pair;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EnemyUpdater {
@@ -14,7 +16,7 @@ public class EnemyUpdater {
     }
 
     public void addChanges(int id, String name, String maxHealth, String reward, String spriteFileName, String speed,
-                           String actionType, String actionRate, String actionRange, String actionParameter, String actionValue) {
+                           String actionType, String actionRate, String actionRange, List<Pair<String, String>> actionParamList) {
         if (enemyList.getEnemies().size() <= id) {
             int amountToCreate = id - enemyList.getEnemies().size() + 1;
             for (int i = 0; i < amountToCreate; i++) {
@@ -33,9 +35,12 @@ public class EnemyUpdater {
         enemy.setActionType(type);
         enemy.setActionRate(Float.parseFloat(actionRate));
         enemy.setActionRange(Integer.parseInt(actionRange));
-//        Map<String, Float> actionParams = new HashMap<>();
-//        actionParams.put(actionParameter, Float.parseFloat(actionValue));
-        enemy.addActionParameter(actionParameter, Float.parseFloat(actionValue));
+        for (Pair<String, String> pair : actionParamList) {
+            String actionParam = pair.getKey();
+            String actionParamValue = pair.getValue();
+            float value = Float.parseFloat(actionParamValue);
+            enemy.addActionParameter(actionParam, value);
+        }
     }
 
     public Enemy getEnemyById(int id) {
