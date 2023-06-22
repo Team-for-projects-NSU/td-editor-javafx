@@ -14,6 +14,13 @@ public class Level {
     private int mapID;
 
     public Level() {
+        id = 0;
+        startingCurrency = 0;
+        reward = 0;
+        backgroundTextureName = "";
+        plotTextureName = "";
+        roadTextureName = "";
+        mapID = 0;
         waves = new ArrayList<>();
     }
 

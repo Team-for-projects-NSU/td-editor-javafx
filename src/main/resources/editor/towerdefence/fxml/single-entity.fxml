@@ -10,7 +10,8 @@
         <fx:include fx:id="tower" source="single-tower.fxml" />
         <fx:include fx:id="enemy" source="single-enemy.fxml" />
         <fx:include fx:id="level" source="single-level.fxml" />
-        <HBox fx:id="entitiesToolbar" layoutX="200.0" layoutY="14.0" prefHeight="50.0" prefWidth="304.0" spacing="32.0">
+        <fx:include fx:id="multilevel" source="multi-level.fxml" />
+        <HBox fx:id="entitiesToolbar" layoutX="200.0" layoutY="14.0" prefHeight="50.0" prefWidth="448.0" spacing="32.0">
             <padding>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
             </padding>
@@ -18,6 +19,7 @@
                 <Button mnemonicParsing="false" onAction="#handleTowerButtonClick" text="Tower" />
                 <Button mnemonicParsing="false" onAction="#handleEnemyButtonClick" text="Enemy" />
                 <Button mnemonicParsing="false" onAction="#handleLevelButtonClick" text="Level" />
+            <Button mnemonicParsing="false" onAction="#handleMultiLevelButtonClick" text="Multi Level" />
             </children>
         </HBox>
     </children>

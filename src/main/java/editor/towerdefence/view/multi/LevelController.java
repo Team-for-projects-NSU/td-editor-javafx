@@ -1,10 +1,11 @@
-package editor.towerdefence.view.single;
+package editor.towerdefence.view.multi;
 
 import editor.towerdefence.controller.MainUpdater;
 import editor.towerdefence.model.enemy.Enemy;
 import editor.towerdefence.model.level.Level;
 import editor.towerdefence.model.tower.TowerUpgrade;
 import editor.towerdefence.model.tower.Upgrade;
+import editor.towerdefence.view.single.WaveRecord;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -148,11 +149,11 @@ public class LevelController {
                 wavesList.add(waveRecord);
             }
         }
-        MainUpdater.getInstance().getLevelUpdater().addChanges(currentId, levelTimeWaves.getText(), levelInitMoney.getText(),
+        MainUpdater.getInstance().getMultiLevelUpdater().addChanges(currentId, levelTimeWaves.getText(), levelInitMoney.getText(),
                 levelReward.getText(), backgroundTexture.getText(), plotTexture.getText(), roadTexture.getText(), wavesList,levelMap.getText());
     }
     private void changeText(){
-        Level level = MainUpdater.getInstance().getLevelUpdater().getLevelById(currentId);
+        Level level = MainUpdater.getInstance().getMultiLevelUpdater().getLevelById(currentId);
         levelTimeWaves.setText("0");
         levelInitMoney.setText(String.valueOf(level.getStartingCurrency()));
         levelReward.setText(String.valueOf(level.getReward()));

@@ -32,7 +32,7 @@ public class MapController {
     @FXML
     private void handleMapPlusButtonClick(ActionEvent event) {
         Button button = createMapButton(mapsAmount);
-        mapIdsPanel.getChildren().add(button);
+        mapIdsPanel.getChildren().add(mapsAmount, button);
         mapsAmount++;
     }
 
@@ -88,6 +88,9 @@ public class MapController {
             return Color.RED;
         }
         return Color.GREEN;
+    }
+    @FXML
+    private void handleMapApplyButtonClick(ActionEvent event) {
     }
 
 

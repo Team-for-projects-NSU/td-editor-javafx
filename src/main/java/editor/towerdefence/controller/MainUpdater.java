@@ -5,6 +5,7 @@ public class MainUpdater {
     private TowerUpdater towerUpdater;
     private EnemyUpdater enemyUpdater;
     private LevelUpdater levelUpdater;
+    private MultiLevelUpdater multiLevelUpdater;
     private MainUpdater() {
         towerUpdater = new TowerUpdater();
         enemyUpdater = new EnemyUpdater();
@@ -28,5 +29,9 @@ public class MainUpdater {
 
     public LevelUpdater getLevelUpdater() {
         return levelUpdater;
+    }
+
+    public MultiLevelUpdater getMultiLevelUpdater() {
+        return multiLevelUpdater;
     }
 }

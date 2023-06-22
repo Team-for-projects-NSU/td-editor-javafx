@@ -39,6 +39,7 @@
                         <TextField fx:id="mapX" promptText="x" />
                         <TextField fx:id="mapY" promptText="y" />
                         <Button mnemonicParsing="false" onAction="#handleMapGenerateButtonClick" text="Generate" />
+                        <Button mnemonicParsing="false" onAction="#handleMapApplyButtonClick" text="Apply" />
                      </children>
                   </HBox>
                   <TilePane fx:id="map" prefHeight="470.0" prefWidth="782.0" />
