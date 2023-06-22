@@ -1,6 +1,11 @@
 package editor.towerdefence.model;
 
 import com.google.gson.*;
+import editor.towerdefence.model.enemy.EnemyList;
+import editor.towerdefence.model.level.LevelList;
+import editor.towerdefence.model.level.LevelMapList;
+import editor.towerdefence.model.tech_tree.TechTree;
+import editor.towerdefence.model.tower.TowerList;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,8 +28,10 @@ public class Serializer {
         fileNames = new HashMap<>();
         fileNames.put("Towers", "BuildingsConfig.json");
         fileNames.put("Enemies", "EnemiesConfig.json");
-        fileNames.put("Levels", "LevelsConfig.json");
-        fileNames.put("Maps", "MapsConfig.json");
+        fileNames.put("Single Levels", "SingleLevelsConfig.json");
+        fileNames.put("Multi Levels", "MultiLevelsConfig.json");
+        fileNames.put("Single Maps", "SingleMapsConfig.json");
+        fileNames.put("Multi Maps", "MultiMapsConfig.json");
         fileNames.put("TechTree", "TechTreeConfig.json");
     }
 
@@ -42,11 +49,13 @@ public class Serializer {
         }
     }
 
-//    public void serializeAll(TowerList towers, EnemyList enemies, LevelList levels, LevelMapList maps, TechTree techTree) {
-//        serializeObject(path.concat(fileNames.get("Towers")), towers.getTowers());
-//        serializeObject(path.concat(fileNames.get("Enemies")), enemies.getEnemies());
-//        serializeObject(path.concat(fileNames.get("Levels")), levels.getLevels());
-//        serializeObject(path.concat(fileNames.get("Maps")), maps.getMaps());
-//        serializeObject(path.concat(fileNames.get("TechTree")), techTree);
-//    }
+    public void serializeAll(TowerList towers, EnemyList enemies, LevelList singlePlayerLevels, LevelList multiPlayerLevels, LevelMapList singlePlayerMaps, LevelMapList multiPlayerMaps, TechTree techTree) {
+        serializeObject(path.concat(fileNames.get("Towers")), towers.getTowers());
+        serializeObject(path.concat(fileNames.get("Enemies")), enemies.getEnemies());
+        serializeObject(path.concat(fileNames.get("Single Levels")), singlePlayerLevels.getLevels());
+        serializeObject(path.concat(fileNames.get("Multi Levels")), multiPlayerLevels.getLevels());
+        serializeObject(path.concat(fileNames.get("Single Maps")), singlePlayerMaps.getMaps());
+        serializeObject(path.concat(fileNames.get("Multi Maps")), multiPlayerMaps.getMaps());
+        serializeObject(path.concat(fileNames.get("TechTree")), techTree);
+    }
 }
