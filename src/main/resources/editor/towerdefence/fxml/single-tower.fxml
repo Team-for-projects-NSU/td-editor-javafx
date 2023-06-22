@@ -98,6 +98,7 @@
                               <Button mnemonicParsing="false" onAction="#handleTowerImprovementButtonClick" style="-fx-padding: 2px 4px;" text="add improvement" />
                            </children>
                         </HBox>
+                        <VBox fx:id="improvements" prefHeight="0.0" prefWidth="681.0" />
                         <Button mnemonicParsing="false" onAction="#handleTowerApplyButtonClick" text="Apply" />
                      </children>
                      <padding>

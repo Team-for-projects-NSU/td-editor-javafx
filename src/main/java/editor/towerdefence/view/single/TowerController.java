@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -26,6 +27,8 @@ public class TowerController {
     private VBox towerEditorPanel;
     @FXML
     private VBox actionParamContainer;
+    @FXML
+    private VBox improvements;
     @FXML
     private Label towerId;
     @FXML
@@ -51,7 +54,7 @@ public class TowerController {
 
     @FXML
     private void initialize() {
-        towerActionParam.setItems(FXCollections.observableArrayList("damage"));
+        towerActionParam.setItems(FXCollections.observableArrayList("damage", "value"));
         towerActionType.setItems(FXCollections.observableArrayList("Default", "DoNothing", "BasicAttack", "GenerateCurrency"));
         changeText();
     }
@@ -75,6 +78,34 @@ public class TowerController {
 
     @FXML
     private void handleTowerImprovementButtonClick(ActionEvent event) {
+        Label costLabel = new Label("Cost:");
+        Label maxHealthLabel = new Label("Max health:");
+        Label demolitionCurrencyLabel = new Label("Demolition currency:");
+        Label actionRateLabel = new Label("Action rate:");
+        Label actionRangeLabel = new Label("Action range:");
+        Label damageLabel = new Label("Damage:");
+        Label valueLabel = new Label("Value:");
+        TextField costTextField = new TextField();
+        TextField maxHealthTextField = new TextField();
+        TextField demolitionCurrencyTextField = new TextField();
+        TextField actionRateTextField = new TextField();
+        TextField actionRangeTextField = new TextField();
+        TextField damageTextField = new TextField();
+        TextField valueTextField = new TextField();
+        HBox costHBox = new HBox(8, costLabel, costTextField);
+        HBox maxHealthHBox = new HBox(8, maxHealthLabel, maxHealthTextField);
+        HBox demolitionCurrencyHBox = new HBox(8, demolitionCurrencyLabel, demolitionCurrencyTextField);
+        HBox actionRateHBox = new HBox(8, actionRateLabel, actionRateTextField);
+        HBox actionRangeHBox = new HBox(8, actionRangeLabel, actionRangeTextField);
+        HBox damageHBox = new HBox(8, damageLabel, damageTextField);
+        HBox valueHBox = new HBox(8, valueLabel, valueTextField);
+        VBox vBox = new VBox(8);
+        Label modifier = new Label("Modifiers");
+        vBox.getChildren().addAll(costHBox, modifier, maxHealthHBox, demolitionCurrencyHBox, actionRateHBox, actionRangeHBox, damageHBox, valueHBox);
+        HBox hBox = new HBox();
+        hBox.setPadding(new Insets(10));
+        hBox.getChildren().add(vBox);
+        improvements.getChildren().add(hBox);
     }
 
     @FXML
@@ -102,7 +133,7 @@ public class TowerController {
         Label label = new Label("Action parameter:");
         ComboBox<String> comboBox = new ComboBox<>();
         comboBox.setPrefWidth(150.0);
-        comboBox.setItems(FXCollections.observableArrayList("damage"));
+        comboBox.setItems(FXCollections.observableArrayList("damage", "value"));
         TextField textField = new TextField();
         textField.setPromptText("value");
         hbox.getChildren().addAll(label, comboBox, textField);
@@ -128,7 +159,7 @@ public class TowerController {
             Label label = new Label("Action parameter:");
             ComboBox<String> comboBox = new ComboBox<>();
             comboBox.setPrefWidth(150.0);
-            comboBox.setItems(FXCollections.observableArrayList("damage"));
+            comboBox.setItems(FXCollections.observableArrayList("damage", "value"));
             comboBox.setValue(actionParam);
             TextField textField = new TextField();
             textField.setPromptText("value");

@@ -22,7 +22,7 @@ public class Tower {
     private int actionRate;
     private int actionRange;
     private Map<String, Float> actionParams;
-    private List<Integer> upgradeIDs;
+    private List<TowerUpgrade> upgrades;
     // добавить эффекты
 
     public Tower() {
@@ -41,7 +41,7 @@ public class Tower {
 
     public Tower(int id, String name, int maxHealth, int cost, String spriteName, int demolitionCurrency,
                  ActionType actionType, int actionRate, int actionRange, Map<String, Float> actionParams,
-                 List<Integer> upgradeIDs) {
+                 List<TowerUpgrade> upgrades) {
         this.id = id;
         this.name = name;
         this.maxHealth = maxHealth;
@@ -52,7 +52,7 @@ public class Tower {
         this.actionRate = actionRate;
         this.actionRange = actionRange;
         this.actionParams = actionParams;
-        this.upgradeIDs = upgradeIDs;
+        this.upgrades = upgrades;
     }
 
     public int getId() {
@@ -135,11 +135,11 @@ public class Tower {
         this.actionParams = actionParams;
     }
 
-    public List<Integer> getUpgradeIDs() {
-        return upgradeIDs;
+    public List<TowerUpgrade> getUpgrades() {
+        return upgrades;
     }
 
-    public void setUpgradeIDs(List<Integer> upgradeIDs) {
-        this.upgradeIDs = upgradeIDs;
+    public void setUpgradeIDs(List<TowerUpgrade> upgrades) {
+        this.upgrades = upgrades;
     }
 }

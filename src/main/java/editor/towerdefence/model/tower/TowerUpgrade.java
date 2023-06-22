@@ -1,15 +1,16 @@
 package editor.towerdefence.model.tower;
 
+import java.util.List;
 import java.util.Map;
 
 public class TowerUpgrade {
     private int price;
-    private Map<String, Float> modifiers;
+    private List<Upgrade> modifiers;
 
     public TowerUpgrade() {
     }
 
-    public TowerUpgrade(int price, Map<String, Float> modifiers) {
+    public TowerUpgrade(int price, List<Upgrade> modifiers) {
         this.price = price;
         this.modifiers = modifiers;
     }
@@ -22,11 +23,11 @@ public class TowerUpgrade {
         this.price = price;
     }
 
-    public Map<String, Float> getModifiers() {
+    public List<Upgrade> getModifiers() {
         return modifiers;
     }
 
-    public void setModifiers(Map<String, Float> modifiers) {
+    public void setModifiers(List<Upgrade> modifiers) {
         this.modifiers = modifiers;
     }
 }
