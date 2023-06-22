@@ -58,6 +58,24 @@
                         </HBox>
                         <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
                            <children>
+                              <Label text="Road texture:" />
+                              <TextField fx:id="roadTexture" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Background texture:" />
+                              <TextField fx:id="backgroundTexture" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
+                              <Label text="Plot texture:" />
+                              <TextField fx:id="plotTexture" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="682.0" spacing="8.0">
+                           <children>
                               <Label text="Enemy speed multiplier:" />
                               <TextField fx:id="levelEnemySpeed" prefHeight="26.0" prefWidth="200.0" />
                            </children>
@@ -79,6 +97,7 @@
                               <Button mnemonicParsing="false" onAction="#handleLevelAddWaveButtonClick" text="Add wave" />
                            </children>
                         </HBox>
+                        <VBox fx:id="waves" prefHeight="200.0" prefWidth="100.0" />
                         <Button mnemonicParsing="false" text="Apply" />
                      </children>
                      <padding>

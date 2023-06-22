@@ -4,9 +4,11 @@ public class MainUpdater {
     private static MainUpdater instance;
     private TowerUpdater towerUpdater;
     private EnemyUpdater enemyUpdater;
+    private LevelUpdater levelUpdater;
     private MainUpdater() {
         towerUpdater = new TowerUpdater();
         enemyUpdater = new EnemyUpdater();
+        levelUpdater = new LevelUpdater();
     }
 
     public static MainUpdater getInstance() {
@@ -22,5 +24,9 @@ public class MainUpdater {
 
     public EnemyUpdater getEnemyUpdater() {
         return enemyUpdater;
+    }
+
+    public LevelUpdater getLevelUpdater() {
+        return levelUpdater;
     }
 }

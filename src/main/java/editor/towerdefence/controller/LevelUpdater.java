@@ -15,7 +15,7 @@ public class LevelUpdater {
     }
 
     public void addChanges(int id, String wavesDelay, String startingCurrency, String reward, String backgroundTextureName,
-                           String plotTextureName, String roadTextureName, List<WaveRecord> waves, int mapId) {
+                           String plotTextureName, String roadTextureName, List<WaveRecord> waves, String mapId) {
 
         if (levelList.getLevels().size() <= id) {
             int amountToCreate = id - levelList.getLevels().size() + 1;
@@ -31,7 +31,7 @@ public class LevelUpdater {
         level.setBackgroundTextureName(backgroundTextureName);
         level.setPlotTextureName(plotTextureName);
         level.setRoadTextureName(roadTextureName);
-        level.setMapID(mapId);
+        level.setMapID(Integer.parseInt(mapId));
 
         for (WaveRecord waveRecord : waves) {
             Wave wave = new Wave();
