@@ -10,6 +10,7 @@ public class MainUpdater {
         towerUpdater = new TowerUpdater();
         enemyUpdater = new EnemyUpdater();
         levelUpdater = new LevelUpdater();
+        multiLevelUpdater = new MultiLevelUpdater();
     }
 
     public static MainUpdater getInstance() {

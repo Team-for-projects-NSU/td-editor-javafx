@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.towerdefence.view.multi.MapController">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" layoutX="200.0" layoutY="14.0" prefHeight="70.0" prefWidth="802.0" vbarPolicy="NEVER">
+         <content>
+            <HBox fx:id="mapIdsPanel" prefHeight="22.0" prefWidth="794.0" spacing="8.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleMapIdButtonClick" text="0" />
+                  <Button mnemonicParsing="false" onAction="#handleMapPlusButtonClick" style="-fx-background-color: #9c81b3;" text="+" />
+               </children>
+               <padding>
+                  <Insets left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+         </content>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </ScrollPane>
+      <ScrollPane layoutX="200.0" layoutY="114.0" prefHeight="570.0" prefWidth="802.0">
+         <content>
+            <VBox prefHeight="559.0" prefWidth="790.0" spacing="16.0">
+               <children>
+                  <Label fx:id="mapId" text="ID: 0" />
+                  <HBox prefHeight="28.0" prefWidth="782.0" spacing="8.0">
+                     <children>
+                        <Label text="Size:" />
+                        <TextField fx:id="mapX" promptText="x" />
+                        <TextField fx:id="mapY" promptText="y" />
+                        <Button mnemonicParsing="false" onAction="#handleMapGenerateButtonClick" text="Generate" />
+                        <Button mnemonicParsing="false" onAction="#handleMapApplyButtonClick" text="Apply" />
+                     </children>
+                  </HBox>
+                  <TilePane fx:id="map" prefHeight="470.0" prefWidth="782.0" />
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </ScrollPane>
+   </children>
+</AnchorPane>

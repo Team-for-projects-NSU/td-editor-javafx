@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.towerdefence.view.MainWindowController">
    <children>
       <fx:include fx:id="single" source="single-mode-view.fxml" />
-      <Button layoutX="18.0" layoutY="584.0" mnemonicParsing="false" text="Generate files" />
+      <Button layoutX="18.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleGenerateButtonClick" text="Generate files" />
       <Button layoutX="49.0" layoutY="646.0" mnemonicParsing="false" text="Exit" />
    </children>
 </AnchorPane>

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.towerdefence.view.single.LevelController">
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.towerdefence.view.multi.LevelController">
    <children>
       <Pane layoutX="200.0" layoutY="100.0" prefHeight="606.0" prefWidth="810.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <children>

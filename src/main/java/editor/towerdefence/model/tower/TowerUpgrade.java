@@ -1,5 +1,6 @@
 package editor.towerdefence.model.tower;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,8 @@ public class TowerUpgrade {
     private List<Upgrade> modifiers;
 
     public TowerUpgrade() {
+        price = 0;
+        modifiers = new ArrayList<Upgrade>();
     }
 
     public TowerUpgrade(int price, List<Upgrade> modifiers) {

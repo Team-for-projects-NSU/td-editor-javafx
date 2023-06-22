@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TowerUpdater {
-    TowerList towerList;
+    private TowerList towerList;
 
     public TowerUpdater() {
         towerList = new TowerList();
@@ -45,6 +45,7 @@ public class TowerUpdater {
             actionParams.put(actionParam, value);
         }
         tower.setActionParams(actionParams);
+        System.out.println(towerUpgrades.size());
         tower.setUpgrades(towerUpgrades);
     }
 
@@ -55,4 +56,7 @@ public class TowerUpdater {
         return towerList.getTowers().get(id);
     }
 
+    public TowerList getTowerList() {
+        return towerList;
+    }
 }

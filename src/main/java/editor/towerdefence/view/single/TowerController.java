@@ -124,28 +124,25 @@ public class TowerController {
                 actionParamList.add(new Pair<>(actionParam, actionParamValue));
             }
         }
-        children = improvements.getChildren();
+        ObservableList<Node> improvementsChildren = improvements.getChildren();
         List<TowerUpgrade> list = new ArrayList<>();
-        for (Node child : children) {
-            if (child instanceof VBox) {
-                VBox vbox = (VBox) child;
-                ObservableList<Node> vboxChildren = vbox.getChildren();
-                TowerUpgrade towerUpgrade = new TowerUpgrade();
-                for (Node vboxChild : vboxChildren) {
-                    if (vboxChild instanceof HBox) {
-                        HBox hbox = (HBox) vboxChild;
-                        ObservableList<Node> hboxChildren = hbox.getChildren();
+        for (Node child : improvementsChildren) {
+            if (child instanceof HBox) {
+                HBox hboxBig = (HBox) child;
+                ObservableList<Node> hboxBigChildren = hboxBig.getChildren();
+                for (Node vboxChild : hboxBigChildren) {
+                    if (vboxChild instanceof VBox) {
+                        TowerUpgrade towerUpgrade = new TowerUpgrade();
+                        VBox vbox = (VBox) vboxChild;
+                        ObservableList<Node> vboxChildren = vbox.getChildren();
 
-                        if (hboxChildren.size() == 2) {
-                            Node labelNode = hboxChildren.get(0);
-                            Node textFieldNode = hboxChildren.get(1);
-
-                            if (labelNode instanceof Label && textFieldNode instanceof TextField) {
-                                Label label = (Label) labelNode;
-                                TextField textField = (TextField) textFieldNode;
-                                String labelText = label.getText();
-                                String textFieldText = textField.getText();
-
+                        for (Node hboxChild : vboxChildren) {
+                            if (hboxChild instanceof HBox) {
+                                HBox innerHBox = (HBox) hboxChild;
+                                Label innerLabel = (Label) innerHBox.getChildren().get(0);
+                                TextField innerTextField = (TextField) innerHBox.getChildren().get(1);
+                                String labelText = innerLabel.getText();
+                                String textFieldText = innerTextField.getText();
                                 switch (labelText) {
                                     case "Cost:":
                                         int price = Integer.parseInt(textFieldText);
@@ -177,25 +174,91 @@ public class TowerController {
                                         towerUpgrade.getModifiers().add(damageUpgrade);
                                         break;
                                     case "Value:":
-                                        float valueModifier = Float.parseFloat(textFieldText);
-                                        Upgrade valueUpgrade = new Upgrade("value", valueModifier);
-                                        towerUpgrade.getModifiers().add(valueUpgrade);
+//                                        float valueModifier = Float.parseFloat(textFieldText);
+//                                        Upgrade valueUpgrade = new Upgrade("value", valueModifier);
+//                                        towerUpgrade.getModifiers().add(valueUpgrade);
                                         break;
                                     default:
                                         break;
                                 }
                             }
                         }
+                        list.add(towerUpgrade);
                     }
                 }
-
-                list.add(towerUpgrade);
             }
         }
-        MainUpdater.getInstance().getTowerUpdater().addChanges(currentId, towerName.getText(), towerHealth.getText(), towerCost.getText(),
-                towerTexture.getText(), towerDemolitionCurrency.getText(), towerActionType.getValue(),
+//        for (Node child : improvementsChildren) {
+//            if (child instanceof VBox) {
+//                VBox vbox = (VBox) child;
+//                ObservableList<Node> vboxChildren = vbox.getChildren();
+//                TowerUpgrade towerUpgrade = new TowerUpgrade();
+//                for (Node vboxChild : vboxChildren) {
+//                    if (vboxChild instanceof HBox) {
+//                        HBox hbox = (HBox) vboxChild;
+//                        ObservableList<Node> hboxChildren = hbox.getChildren();
+//
+//                        if (hboxChildren.size() == 2) {
+//                            Node labelNode = hboxChildren.get(0);
+//                            Node textFieldNode = hboxChildren.get(1);
+//
+//                            if (labelNode instanceof Label && textFieldNode instanceof TextField) {
+//                                Label label = (Label) labelNode;
+//                                TextField textField = (TextField) textFieldNode;
+//                                String labelText = label.getText();
+//                                String textFieldText = textField.getText();
+//
+//                                switch (labelText) {
+//                                    case "Cost:":
+//                                        int price = Integer.parseInt(textFieldText);
+//                                        towerUpgrade.setPrice(price);
+//                                        break;
+//                                    case "Max health:":
+//                                        float maxHealthModifier = Float.parseFloat(textFieldText);
+//                                        Upgrade maxHealthUpgrade = new Upgrade("maxHealth", maxHealthModifier);
+//                                        towerUpgrade.getModifiers().add(maxHealthUpgrade);
+//                                        break;
+//                                    case "Demolition currency:":
+//                                        float demolitionCurrencyModifier = Float.parseFloat(textFieldText);
+//                                        Upgrade demolitionCurrencyUpgrade = new Upgrade("demolitionCurrency", demolitionCurrencyModifier);
+//                                        towerUpgrade.getModifiers().add(demolitionCurrencyUpgrade);
+//                                        break;
+//                                    case "Action rate:":
+//                                        float actionRateModifier = Float.parseFloat(textFieldText);
+//                                        Upgrade actionRateUpgrade = new Upgrade("actionRate", actionRateModifier);
+//                                        towerUpgrade.getModifiers().add(actionRateUpgrade);
+//                                        break;
+//                                    case "Action range:":
+//                                        float actionRangeModifier = Float.parseFloat(textFieldText);
+//                                        Upgrade actionRangeUpgrade = new Upgrade("actionRange", actionRangeModifier);
+//                                        towerUpgrade.getModifiers().add(actionRangeUpgrade);
+//                                        break;
+//                                    case "Damage:":
+//                                        float damageModifier = Float.parseFloat(textFieldText);
+//                                        Upgrade damageUpgrade = new Upgrade("damage", damageModifier);
+//                                        towerUpgrade.getModifiers().add(damageUpgrade);
+//                                        break;
+//                                    case "Value:":
+//                                        float valueModifier = Float.parseFloat(textFieldText);
+//                                        Upgrade valueUpgrade = new Upgrade("value", valueModifier);
+//                                        towerUpgrade.getModifiers().add(valueUpgrade);
+//                                        break;
+//                                    default:
+//                                        break;
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                list.add(towerUpgrade);
+//            }
+//        }
+        MainUpdater.getInstance().getTowerUpdater().addChanges(currentId, towerName.getText(), towerHealth.getText(),
+                towerCost.getText(), towerTexture.getText(), towerDemolitionCurrency.getText(), towerActionType.getValue(),
                 towerActionRate.getText(), towerActionRange.getText(), actionParamList, list);
     }
+
     @FXML
     private void handleAddActionParamButtonClick(ActionEvent event) {
         HBox hbox = new HBox();
@@ -209,6 +272,7 @@ public class TowerController {
         hbox.getChildren().addAll(label, comboBox, textField);
         actionParamContainer.getChildren().add(hbox);
     }
+
     private void changeText() {
         Tower tower = MainUpdater.getInstance().getTowerUpdater().getTowerById(currentId);
         towerName.setText(tower.getName());
