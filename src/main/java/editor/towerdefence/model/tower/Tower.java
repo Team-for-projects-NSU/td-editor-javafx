@@ -139,7 +139,7 @@ public class Tower {
         return upgrades;
     }
 
-    public void setUpgradeIDs(List<TowerUpgrade> upgrades) {
+    public void setUpgrades(List<TowerUpgrade> upgrades) {
         this.upgrades = upgrades;
     }
 }

@@ -2,6 +2,7 @@ package editor.towerdefence.controller;
 
 import editor.towerdefence.model.tower.Tower;
 import editor.towerdefence.model.tower.TowerList;
+import editor.towerdefence.model.tower.TowerUpgrade;
 import javafx.util.Pair;
 
 import java.util.HashMap;
@@ -16,7 +17,8 @@ public class TowerUpdater {
     }
 
     public void addChanges(int id, String name, String maxHealth, String cost, String spriteName, String demolitionCurrency,
-                           String actionType, String actionRate, String actionRange, List<Pair<String, String>> actionParamList) {
+                           String actionType, String actionRate, String actionRange, List<Pair<String, String>> actionParamList,
+                           List<TowerUpgrade> towerUpgrades) {
         if (towerList.getTowers().size() <= id) {
             int amountToCreate = id - towerList.getTowers().size() + 1;
             for (int i = 0; i < amountToCreate; i++) {
@@ -43,6 +45,7 @@ public class TowerUpdater {
             actionParams.put(actionParam, value);
         }
         tower.setActionParams(actionParams);
+        tower.setUpgrades(towerUpgrades);
     }
 
     public Tower getTowerById(int id) {
